@@ -58,11 +58,24 @@ function saveUserData(userData) {
 }
 
 function updateUserDataTable() {
-    // Clear existing rows in the table
+    // Clear existing rows and headers in the table
     userDataTableBody.innerHTML = '';
 
     // Retrieve user data list from localStorage
     const userList = JSON.parse(localStorage.getItem('userList')) || [];
+
+    // Display table headers
+    if (userList.length > 0) {
+        const headerRow = document.createElement('tr');
+        headerRow.innerHTML = `
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Dob</th>
+            <th>Accepted terms?</th>
+        `;
+        userDataTableBody.appendChild(headerRow);
+    }
 
     // Iterate through the user data list and create rows in the table
     userList.forEach((userData) => {
