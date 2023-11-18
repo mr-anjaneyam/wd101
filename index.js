@@ -98,7 +98,7 @@ function createUserDataTableRow(userData) {
         <td>${userData.email}</td>
         <td>${userData.password}</td>
         <td>${userData.dob}</td>
-        <td>${userData.terms ? 'Yes' : 'No'}</td>
+        <td>${userData.terms ? 'true' : 'false'}</td>
     `;
     return row;
 }
